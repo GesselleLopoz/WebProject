@@ -79,7 +79,7 @@ class LikesController extends AppBaseController
         if (empty($likes)) {
             Flash::error('Likes not found');
 
-            return redirect(route('likes.index'));   
+            return redirect(route('likes.index'));
         }
 
         return view('likes.show')->with('likes', $likes);
@@ -167,7 +167,7 @@ class LikesController extends AppBaseController
             return json_encode(['response' => true]);
         }
     }
-        public function assessLike(Request $request) {
+        public function analyzeLike(Request $request) {
             if ($request ->ajax()){
                 $like = Likes::where('post_id', $request['post_id'])
                              ->where('user_id', $request['user_id'])
